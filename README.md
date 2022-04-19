@@ -1,7 +1,1 @@
-# groupproject1
-I enjoy JavaScript because it utilizes both Functional programming and Object-oriented programming.
-
-
-I enjoy JavaScript because it utilizes both Functional programming and Object-oriented programming.
-
-
+My favorite thing about javascript is the opportunity to create your own creative projects!
