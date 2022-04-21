@@ -6,29 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> weathR trackR </title>
 
+    <!-- Google Fonts stylesheet link  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
-
-    <!-- add jquery and other links here -->
+ <!-- add jquery and other links here -->
 </head>
 <body>
     <main class="container"> 
     <nav>
-        <div class="navLogo"> weathR trackR </div>
+        <div class="navLogo"> weathR.trackR </div>
     </nav>
     <p class="introP"> State Park goers who would like to have information about the parks current daily weather, activities, and basic information.</p>
     <form id="searchForm">
         <label class="formBoxes"> Search By State: </label>
-        <input class="formBoxes" type="text" id="stateInputText" placeholder="example: TX">
+        <input class="formBoxes" type="text" id="stateInputText" placeholder="example: TX, NY, CA">
         <button class="formBoxes" id="searchBtn"> search </button>
     </form>
     <div id="apiContainer"> 
         <div class="apiBoxes" id="sPark"> Name Of The State Park </div>
         <button class="apiBoxes" id="weatherBtn"> Check The Weather </button>
     </div>
-    </main>         
+    </main>    
+    <!-- Javascript Links       -->
     <script src="assets/js/script.js"></script>
     <script src="assets/js/fetch.js"></script>
 </body>
