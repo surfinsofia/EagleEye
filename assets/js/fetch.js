@@ -61,6 +61,8 @@ function darkLightMode() {
  $("#dark-mode").click(darkLightMode);
 
 //  Weather
+var weatherbtn=document.querySelector("#weatherBtn")
+weatherbtn.addEventListener("click",currentWeather)
 
 
 var state = ("enter state")
@@ -92,8 +94,7 @@ function currentWeather(state) {
     ;
     
 }
-// currentWeather()
-// console.log(today)
+
 
 
 
