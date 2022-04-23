@@ -69,6 +69,16 @@
 
   /* API Placeholder Boxes */
 
+  #cityStateList {
+    display: flex;
+    flex-wrap: nowrap;
+    list-style-type: none;
+  }
+
+  #apiCityBox {
+    padding-right: 5px;
+  }
+
   #apiContainer {
       display: flex;
       justify-content: space-between;
@@ -79,4 +89,19 @@
 
   #weatherBtn {
     padding: 15px;
+  }
+
+  #apiWeatherInfoContainer {
+    display:flex;
+    margin-top: 20px;
+    justify-content: space-evenly;
+  }
+
+  .apiWeatherBoxes {
+    width: 100%;
+    padding: 40px;
+    margin: 5px;
+    border: 1px dashed #CAD2C5;
+    width: 100%;
+    text-align: center;
   }
