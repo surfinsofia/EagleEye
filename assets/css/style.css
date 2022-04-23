@@ -14,8 +14,16 @@
   body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.8em;
-
+    background-color: white;
+    color: black;
   }
+
+  .dark-mode {
+    background-color: black;
+    color: white;
+  }
+   
+
 
   button {
     padding:10px;
