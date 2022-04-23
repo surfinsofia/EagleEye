@@ -1,5 +1,6 @@
 var parkName = document.querySelector("#sPark")
-var cityName = document.querySelector("#city")
+var cityName = document.querySelector("#apiCityBox")
+var stateName = document.querySelector("#apiStateBox")
 var searchBtn = document.querySelector("#searchBtn")
 
 searchBtn.addEventListener("click", saveInput)
@@ -32,9 +33,17 @@ function getApi() {
     })
     .then(function (data) {
       console.log(data)
-      parkName.textContent=data.data[0].fullName 
-      city.textContent=data.data[0].addresses[1].city+', '+ data.data[0].addresses[1].stateCode
       
+      
+      parkName.textContent=data.data[0].fullName 
+    
+      cityName.textContent=data.data[0].addresses[1].city
+      console.log(data.data[0].addresses[1].stateCode)
+      
+      stateName.textContent=data.data[0].addresses[1].stateCode
+      window.localStorage.setItem("cityFetch",data.data[0].addresses[1].city)
+
+      console.log(cityName.value)
 
       
 
