@@ -19,7 +19,7 @@
         <div class="navLogo"> weathR.trackR <ion-icon name="rainy-outline"></ion-icon> </div>
         <div> <button class="dark-mode" id="dark-mode">Dark/Light</button></div>
     </nav>
-    <p class="introP"> State Park goers who would like to have information about the parks current daily weather, activities, and basic information.</p>
+    <p class="introP"> National Park goers who would like to have information about the parks current daily weather, activities, and basic information.</p>
 
     <!-- html input form  -->
     <form id="searchForm">
@@ -83,13 +83,14 @@
 
     <!-- State Park API Container  -->
     <div id="apiContainer"> 
-        <div class="apiBoxes" id="sPark"> Name Of The State Park </div>
+        <div class="apiBoxes" id="sPark"> Name of National Park </div>
         <ul class="apiBoxes" id="cityStateList"> 
-        <li id="apiCityBox"> </li>
+        <li id="apiCityBox"><br></li>
+        <li id="apiAddress"><br></li>
         <li id="apiStateBox"> </li>
         </ul>
 
-        <button class="apiBoxes" id="weatherBtn"> Check The Weather <ion-icon name="sunny-outline"></ion-icon> </button>
+        <!-- <button class="apiBoxes" id="weatherBtn"> Check The Weather <ion-icon name="sunny-outline"></ion-icon> </button> -->
     </div>
     <!-- Weather API Container  --> 
     <section id="apiWeatherInfoContainer">
