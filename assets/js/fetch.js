@@ -1,6 +1,7 @@
 var parkName = document.querySelector("#sPark")
 var cityName = document.querySelector("#apiCityBox")
 var stateName = document.querySelector("#apiStateBox")
+var cityAddress = document.querySelector("#apiAddress")
 var searchBtn = document.querySelector("#searchBtn")
 
 searchBtn.addEventListener("click", saveInput)
@@ -12,6 +13,8 @@ console.log(searchBtn)
 
 function saveInput(event){
   event.preventDefault();
+
+
   var stateCode = document.querySelector("#stateInputText").value
       window.localStorage.setItem("state", stateCode);
       console.log(stateCode)
@@ -34,24 +37,54 @@ function getApi() {
     .then(function (data) {
       console.log(data)
       
+      newArray=[]
       
-      parkName.textContent=data.data[0].fullName 
+     console.log(newArray)
+      for(let i=0; i<=10; i++){       
+        var parkInfo = {
+          name:  data.data[i].fullName,
+          city: data.data[i].addresses[1].city,
+          address: data.data[i].addresses[0].line1,
+          zipcode: data.data[i].addresses[1].postalCode,
+          image:data.data[i].images[0].url
+      };
+         newArray.push(parkInfo)
+        
+        window.localStorage.setItem("parkInfo",JSON.stringify(newArray))
+          
+        
+      }
+     
+      //  console.log(localStorage.parkInfo)
     
-      cityName.textContent=data.data[0].addresses[1].city
-      console.log(data.data[0].addresses[1].stateCode)
-      
-      stateName.textContent=data.data[0].addresses[1].stateCode
-      window.localStorage.setItem("cityFetch",data.data[0].addresses[1].city)
-
-      console.log(cityName.value)
-
-      
-
-console.log(data.data[0].fullName)
-console.log(data.data[0].addresses[0].postalCode)
 
     });
 }
+
+
+
+
+var storedNames = JSON.parse(localStorage.getItem("parkInfo"));
+console.log(storedNames)
+for(let i=0;i<storedNames.length;i++){
+  console.log(storedNames[i])
+
+  // const para = document.createElement("p");
+  // para.innerHTML =storedNames[i].name ;
+  // document.getElementById("sPark").appendChild(para);
+
+}
+
+
+
+
+
+
+
+
+
+
+
 // Dark and Light mode function
 function darkLightMode() {
     var element = document.body;
@@ -60,40 +93,52 @@ function darkLightMode() {
 
  $("#dark-mode").click(darkLightMode);
 
-//  Weather
-var weatherbtn=document.querySelector("#weatherBtn")
-weatherbtn.addEventListener("click",currentWeather)
 
 
-var state = ("enter state")
 var today = moment().format("L")
 
-function currentWeather(state) {
-  var cityStorage = window.localStorage.getItem("cityFetch")
-   var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q='+cityStorage+'&units=imperial&appid=e724ba8d68a039f0c9e73328553900ef';
-   fetch(requestUrl)
-    .then(function (response) {
-       return response.json();
-    })
-    .then(function (weatherResponse) {
+// function currentWeather() {
+//   var cityStorage = window.localStorage.getItem("cityFetch")
+//    var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q='+cityStorage+'&units=imperial&appid=e724ba8d68a039f0c9e73328553900ef';
+//    fetch(requestUrl)
+//     .then(function (response) {
+//        return response.json();
+//     })
+//     .then(function (weatherResponse) {
       
       
-      console.log(weatherResponse);
+//       console.log(weatherResponse);
 
-      var currentState = $(`
-            <h2 id="currentState">
-                ${weatherResponse.name} ${today} 
-            </h2>
-            <p>Temperature: ${weatherResponse.main.temp} °F</p>
-            <p>Humidity: ${weatherResponse.main.humidity}\%</p>
-            <p>Wind Speed: ${weatherResponse.wind.speed} MPH</p>
-        `);
+//       var currentState = $(`
+//             <h2 id="currentState">
+//                 ${weatherResponse.name} ${today} 
+//             </h2>
+//             <p>Temperature: ${weatherResponse.main.temp} °F</p>
+//             <p>Humidity: ${weatherResponse.main.humidity}\%</p>
+//             <p>Wind Speed: ${weatherResponse.wind.speed} MPH</p>
+//         `);
 
-        $("#apiWeatherBox1").append(currentState);
-    });
-    ;
+
+
+
+
+//         $("#apiWeatherBox3").append(currentState);
+//     });
+//     ;
     
-}
+
+
+
+    
+  
+
+
+
+
+
+    
+ 
+
 
 
 
