@@ -125,6 +125,49 @@ function darkLightMode() {
  currentCityWeather()
  
  
+// Alerts API Function
+
+function getAlertsApi() {
+  var stateStorage = window.localStorage.getItem("state")
+
+  var requestAlertsUrl = 'https://developer.nps.gov/api/v1/alerts?parkCode=&stateCode='+stateStorage+'&api_key=RoK1dEqNYGy3sRg4nQLmqFuSBnd6vuo9p4WA8l9Q';
+
+  fetch(requestAlertsUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+
+      newAlertsArray=[]
+
+      console.log(newAlertsArray);
+
+      for(let i=0; i<=10; i++){       
+        var parkAlertsInfo = {
+          title: data.data[i].title,
+          description: data.data[i].description,
+          date: data.data[i].lastIndexedDate
+      };
+
+      newAlertsArray.push(parkAlertsInfo);
+
+      window.localStorage.setItem("parkAlertsInfo",JSON.stringify(newAlertsArray))
+      
+      // console.log(data.data[0].title);
+      // console.log(data.data[0].description);
+      // console.log(data.data[0].lastIndexedDate);
+      // webTest.textContent="";
+      // console.log(webTest);   
+    }
+    });
+  
+}
+//test to see if it works
+getAlertsApi()
+
+
+
  
  
     
