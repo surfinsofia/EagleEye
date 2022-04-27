@@ -93,38 +93,40 @@ function darkLightMode() {
 
  $("#dark-mode").click(darkLightMode);
 
+// weather for each City
 
 
-var today = moment().format("L")
-
-// function currentWeather() {
-//   var cityStorage = window.localStorage.getItem("cityFetch")
-//    var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q='+cityStorage+'&units=imperial&appid=e724ba8d68a039f0c9e73328553900ef';
-//    fetch(requestUrl)
-//     .then(function (response) {
-//        return response.json();
-//     })
-//     .then(function (weatherResponse) {
-      
-      
-//       console.log(weatherResponse);
-
-//       var currentState = $(`
-//             <h2 id="currentState">
-//                 ${weatherResponse.name} ${today} 
-//             </h2>
-//             <p>Temperature: ${weatherResponse.main.temp} °F</p>
-//             <p>Humidity: ${weatherResponse.main.humidity}\%</p>
-//             <p>Wind Speed: ${weatherResponse.wind.speed} MPH</p>
-//         `);
-
-
-
-
-
-//         $("#apiWeatherBox3").append(currentState);
-//     });
-//     ;
+// cities array 
+ var city =["Austin","Dallas", "Houston", "San Antonio", "amarillo"];
+ var today = moment().format("L");
+ function currentCityWeather (){
+   for (var i = 0 ; i < city.length; i++){
+       // weather api
+       var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city[i] + "&units=imperial&appid=1ca11eb2eb0a3f14218b80de67213ac5"
+         fetch(requestUrl)
+        .then(function (response) {
+            return response.json();
+         })
+      .then(function (weatherResponse) {
+         console.log(weatherResponse);
+         console.log(weatherResponse.main.temp);
+      // append the weather result on the browser
+           var currentcity = $(`
+              <h4 id="currentState">
+                  ${weatherResponse.name} ${today}
+              </h4>
+              <p>Temperature: ${weatherResponse.main.temp} °F</p>
+              <p>Humidity: ${weatherResponse.main.humidity}\%</p>
+         `   );
+          $("#apiWeatherBox1").append(currentcity);
+       });
+     }
+ }
+ currentCityWeather()
+ 
+ 
+ 
+ 
     
 
 
