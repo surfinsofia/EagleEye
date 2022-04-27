@@ -60,21 +60,37 @@ function getApi() {
 
     });
 }
+// var test = {conditions:["hot",'cold','misty','windy','gusty']}
+  
+
+
+// var storedNames = JSON.parse(localStorage.getItem("parkInfo"));
+// console.log(storedNames[0].weather)
+// console.log(storedNames)
 
 
 
+// for(let i=0;i<storedNames.length;i++){
+//   console.log(storedNames[i].city)
+//   storedNames[i].weather= test.conditions[i]
+  
 
-var storedNames = JSON.parse(localStorage.getItem("parkInfo"));
-console.log(storedNames)
-for(let i=0;i<storedNames.length;i++){
-  console.log(storedNames[i])
+// }
 
-  // const para = document.createElement("p");
-  // para.innerHTML =storedNames[i].name ;
-  // document.getElementById("sPark").appendChild(para);
+// //loop to append elements to page
+// for(let i=0;i<storedNames.length;i++){
+//   console.log(storedNames[i].weather)
+  
+  
+  
+//   const para = document.createElement("p");
+//   para.innerHTML =storedNames[i].weather ;
+//   document.getElementById("sPark").appendChild(para);
+// }
 
-}
 
+
+// var newKey=storedNames[0].weather="hot"
 
 
 
@@ -122,11 +138,17 @@ var today = moment().format("L")
 
 
 
-//         $("#apiWeatherBox3").append(currentState);
-//     });
-//     ;
-    
+    //     $("#apiWeatherBox3").append(currentState);
+    // });
+    // ;
+   
 
+
+         
+          //  console.log(localStorage.parkInfo)
+        
+    
+     
 
 
     
