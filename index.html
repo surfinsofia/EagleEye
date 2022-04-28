@@ -14,16 +14,33 @@
  <!-- add jquery and other links here -->
 </head>
 <body>
-    <main class="container"> 
-    <nav>
-        <div class="navLogo"> weathR.trackR <ion-icon name="rainy-outline"></ion-icon> </div>
-        <div> <button class="dark-mode" id="dark-mode">Dark/Light</button></div>
+        <nav class="navContainer">
+        <div class="navLogo navBox"> LOGO </div>
+        <ul class="navBox navListContainer">
+            <li class="navItem"> <a href="#mainTopContainerAnchorLink"> parks </a> </li>
+            <li class="navItem"> webcams </li>    
+            <li class="dark-mode navItem" id="dark-mode"></li>
+        </ul>
     </nav>
-    <p class="introP"> National Park goers who would like to have information about the parks current daily weather, activities, and basic information.</p>
-
+    <section class="mainHeader"> 
+        <div class="headerContent headerBoxes"> 
+            <h1 class="headerh2"> AppName </h1>
+            <p class="headerPara"> Hi National Park Enthusiast! Welcome to (AppName) a one-stop shop application that allows you to cross reference National Parks info with the weather. Wondering if you should bring your raincoat? We have you covered!  <br> <br> In this application, we used a combination of HTML/CSS, Javascript, JQuery, National Parks API, and Weather API working together to gather all park information, weather alerts, and a daily weather forecast - for your adventure!  </p>
+            <a class="btnClass" href="#mainTopContainerAnchorLink"> Plan Your Trip → </a>
+            </div>
+        <div class="headerImage headerBoxes">
+            <h3 class="headerCaption"> Mt. Rainier National Park | Washington, USA</h3>
+            <!-- <img src="./assets/images/mt-rainier.jpg" alt="Mt Rainier National Park, Washington, USA" > -->
+        </div>
+        </section>
+    <main class="container" id="mainTopContainerAnchorLink"> 
     <!-- html input form  -->
+    <div id="formHeader" class="formHeader"> 
+    <h3> plan your trip </h3>
+    <h2> search by state </h2>
+    </div>
     <form id="searchForm">
-        <label class="formBoxes"> Search By State: <ion-icon name="location-outline"></ion-icon> </label>
+        <label class="formBoxes"> National Parks </label>
         <select name="formBoxes" id="stateInputText">
             <option value="" disabled="" selected=""> Choose A State </option>
             <option value="AL">Alabama</option>
@@ -78,7 +95,7 @@
             <option value="WI">Wisconsin</option>
             <option value="WY">Wyoming</option>
           </select>
-        <button class="formBoxes" id="searchBtn"> search </button>
+        <button class="formBoxes btnClass" id="searchBtn"> search </button>
     </form>
 
     <!-- State Park API Container  -->
@@ -89,8 +106,6 @@
         <li id="apiAddress"><br></li>
         <li id="apiStateBox"> </li>
         </ul>
-
-        <!-- <button class="apiBoxes" id="weatherBtn"> Check The Weather <ion-icon name="sunny-outline"></ion-icon> </button> -->
     </div>
     <!-- Weather API Container  --> 
     <section id="apiWeatherInfoContainer">
