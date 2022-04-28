@@ -152,7 +152,7 @@ nav a:hover {
   position: relative;
   width: 50%;
   height: 100%;
-  background-image: url("/assets/images/mt-rainier.jpg");
+  background-image: url("/assets/images/mt-rainier-header.jpg");
   background-size: cover;
 }
 .headerCaption{
@@ -237,9 +237,8 @@ label {
   width: 100%;
   text-align: center;
 }
-#cityStateList{
-  
-}
+
+
 
 
 
@@ -345,7 +344,7 @@ label {
     padding: 20px;
 }
 
-/* API Placeholder Boxes */
+/* Weather API Placeholder Boxes */
 
 #cityStateList {
   display: flex;
@@ -383,9 +382,7 @@ label {
   width: 100%;
   text-align: center;
 }
-#cityStateList{
-  
-}
+
 
  .apiWeatherBoxes {
     width: 100%;
