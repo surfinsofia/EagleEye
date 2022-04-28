@@ -42,12 +42,15 @@ function getApi() {
      console.log(newArray)
       for(let i=0; i<=10; i++){       
         var parkInfo = {
-          name:  data.data[i].fullName,
+          name:  data.data.fullName,
+          
           city: data.data[i].addresses[1].city,
           address: data.data[i].addresses[0].line1,
           zipcode: data.data[i].addresses[1].postalCode,
           image:data.data[i].images[0].url
+          
       };
+      console.log(data.data[i].addresses[1].city)
          newArray.push(parkInfo)
         
         window.localStorage.setItem("parkInfo",JSON.stringify(newArray))
@@ -57,7 +60,7 @@ function getApi() {
      
       //  console.log(localStorage.parkInfo)
     
-
+        currentCityWeather();
     });
 }
 // var test = {conditions:["hot",'cold','misty','windy','gusty']}
@@ -75,7 +78,11 @@ function getApi() {
 //   storedNames[i].weather= test.conditions[i]
   
 
-// }
+var storedNames = JSON.parse(localStorage.getItem("parkInfo"));
+console.log(storedNames)
+
+for(let i=0;i<storedNames.length;i++){
+  console.log(storedNames[i])
 
 // //loop to append elements to page
 // for(let i=0;i<storedNames.length;i++){
@@ -109,30 +116,85 @@ function darkLightMode() {
 
  $("#dark-mode").click(darkLightMode);
 
+// weather for each City
 
 
-var today = moment().format("L")
+// cities array 
+//  var city =["Austin","Dallas", "Houston", "San Antonio", "amarillo"];
+ var today = moment().format("L");
+ 
 
-// function currentWeather() {
-//   var cityStorage = window.localStorage.getItem("cityFetch")
-//    var requestUrl = 'https://api.openweathermap.org/data/2.5/weather?q='+cityStorage+'&units=imperial&appid=e724ba8d68a039f0c9e73328553900ef';
-//    fetch(requestUrl)
-//     .then(function (response) {
-//        return response.json();
-//     })
-//     .then(function (weatherResponse) {
+ 
+
+ function currentCityWeather (){
+
+  var cityFromLocalStorage = JSON.parse(localStorage.getItem("cityFetch"))
+console.log(cityFromLocalStorage)
+   for (var i = 0 ; i < cityFromLocalStorage.length; i++){
+       // weather api
+       var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityFromLocalStorage[i] + "&units=imperial&appid=1ca11eb2eb0a3f14218b80de67213ac5"
+         fetch(requestUrl)
+        .then(function (response) {
+            return response.json();
+         })
+      .then(function (weatherResponse) {
+         console.log(weatherResponse);
+         console.log(weatherResponse.main.temp);
+      // append the weather result on the browser
+           var currentcity = $(`
+              <h4 id="currentState">
+                  ${weatherResponse.name} ${today}
+              </h4>
+              <p>Temperature: ${weatherResponse.main.temp} °F</p>
+              <p>Humidity: ${weatherResponse.main.humidity}\%</p>
+         `   );
+          $("#apiWeatherBox1").append(currentcity);
+       });
+     }
+ }
+ 
+ 
+ 
+// Alerts API Function
+
+function getAlertsApi() {
+  var stateStorage = window.localStorage.getItem("state")
+
+  var requestAlertsUrl = 'https://developer.nps.gov/api/v1/alerts?parkCode=&stateCode='+stateStorage+'&api_key=RoK1dEqNYGy3sRg4nQLmqFuSBnd6vuo9p4WA8l9Q';
+
+  fetch(requestAlertsUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+
+      newAlertsArray=[]
+
+      console.log(newAlertsArray);
+
+      for(let i=0; i<=10; i++){       
+        var parkAlertsInfo = {
+          title: data.data[i].title,
+          description: data.data[i].description,
+          date: data.data[i].lastIndexedDate
+      };
+
+      newAlertsArray.push(parkAlertsInfo);
+
+      window.localStorage.setItem("parkAlertsInfo",JSON.stringify(newAlertsArray))
       
-      
-//       console.log(weatherResponse);
-
-//       var currentState = $(`
-//             <h2 id="currentState">
-//                 ${weatherResponse.name} ${today} 
-//             </h2>
-//             <p>Temperature: ${weatherResponse.main.temp} °F</p>
-//             <p>Humidity: ${weatherResponse.main.humidity}\%</p>
-//             <p>Wind Speed: ${weatherResponse.wind.speed} MPH</p>
-//         `);
+      // console.log(data.data[0].title);
+      // console.log(data.data[0].description);
+      // console.log(data.data[0].lastIndexedDate);
+      // webTest.textContent="";
+      // console.log(webTest);   
+    }
+    });
+  
+}
+//test to see if it works
+getAlertsApi()
 
 
 
