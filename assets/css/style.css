@@ -82,6 +82,7 @@ nav a {
 
 nav a:hover {
   text-decoration: 1.5px solid line-through #2F3E46 ;
+
   
 }
 
@@ -227,42 +228,152 @@ label {
   
 }
 
-<<<<<<< HEAD
-  label {
-      padding: 20px;
-  }
 
-  /* API Placeholder Boxes */
 
-  #cityStateList {
+/* dark mode button  */
+
+
+.dark-mode {
+  background: linear-gradient( #000, #2F3E46, #000),
+  url("/assets/images/Challenges.png");
+  color: white;
+}
+
+.dark-mode img {
+  color:white;
+}
+ 
+/* button styling */
+
+.btnClass {
+  padding:10px;
+  background-color: #2F3E46;
+  text-transform: uppercase;
+  color: white;
+  font-size: 12px;
+  border:none;
+  letter-spacing: 2px;
+}
+
+/* Image Header & Intro Paragraph */
+
+.mainHeader {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  width: 100%;
+  height: 100vh;
+  /* background-color: #b4d6bc; */
+}
+
+.headerContent {
+  padding: 150px;
+  width: 50%;
+} 
+
+.headerh2 {
+  /* text-decoration: 5px solid overline #84A98C ; */
+  padding-bottom: 20px;;
+}
+
+.headerPara {
+  padding-bottom: 20px;
+} 
+
+.headerImage {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background-image: url("/assets/images/mt-rainier.jpg");
+  background-size: cover;
+}
+.headerCaption{
+  padding-bottom: 10px;
+  width: 95%;
+  color: white;
+  position: absolute;
+  border-bottom: 1.8px solid white;
+  bottom: 20%;
+  left: 5%;
+}
+
+/* Form  */
+
+.formHeader {
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+
+#searchForm {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-evenly;
+  background-color: #CAD2C5;
+  margin-bottom: 20px;
+}
+
+#stateInputText {
+  width: 100%;
+  padding: 15px;
+  border-top: 1px dashed #CAD2C5;
+  border-bottom: 1px dashed #CAD2C5;
+  border-left:none;
+  border-right: none;
+}
+
+.formBoxes {
+  width: 50%;
+}
+
+
+label {
+    padding: 20px;
+}
+
+/* API Placeholder Boxes */
+
+#cityStateList {
+  display: flex;
+  flex-wrap: nowrap;
+  list-style-type: none;
+}
+
+#apiCityBox {
+  padding-right: 5px;
+}
+
+#apiContainer {
     display: flex;
-    flex-wrap: nowrap;
-    list-style-type: none;
-  }
-
-  #apiCityBox {
-    padding-right: 5px;
-  }
-
-  #apiContainer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #cad2c567;
-      padding: 15px;
-  }
-
-  #weatherBtn {
+    justify-content: space-between;
+    align-items: center;
+    background-color: #cad2c567;
     padding: 15px;
-  }
+}
 
-  #apiWeatherInfoContainer {
-    display:flex;
-    margin-top: 20px;
-    justify-content: space-evenly;
-  }
+#weatherBtn {
+  padding: 15px;
+}
 
-  .apiWeatherBoxes {
+#apiWeatherInfoContainer {
+  display:flex;
+  margin-top: 20px;
+  justify-content: space-evenly;
+}
+
+.apiWeatherBoxes {
+  width: 100%;
+  padding: 40px;
+  margin: 5px;
+  border: 1px dashed #CAD2C5;
+  width: 100%;
+  text-align: center;
+}
+#cityStateList{
+  
+}
+
+ .apiWeatherBoxes {
     width: 100%;
     padding: 40px;
     margin: 5px;
@@ -271,5 +382,3 @@ label {
     text-align: center;
   }
   
-=======
->>>>>>> 455b43cbd01b05895b693bdde700222c8d79e908
