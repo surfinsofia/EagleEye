@@ -50,9 +50,11 @@ function getApi() {
       newArray=[]
       
      
-      for(let i=0; i<=10; i++){       
+      for(let i=0; i<=data.data.length; i++){       
+        
+        
         var parkInfo = {
-          name:  data.data.fullName,
+          name:  data.data[i].name,
           
           city: data.data[i].addresses[1].city,
           address: data.data[i].addresses[0].line1,
@@ -60,21 +62,24 @@ function getApi() {
           image:data.data[i].images[0].url
           
       };
-      console.log(data.data[i].addresses[1].city)
+      
+      
       // pushing the parkinfo object into an array named newArray  
       newArray.push(parkInfo)
+      // console.log(newArray)
         //storing newArray into local storage
-        window.localStorage.setItem("parkInfo",JSON.stringify(newArray))              }
-     
-         storeCitiesInLocalStorage();
+         window.localStorage.setItem("parkInfo",JSON.stringify(newArray))              
+    }
+         
     });
+    storeCitiesInLocalStorage();
 }
 
 
 function storeCitiesInLocalStorage(){
   // getting parkInfo from local storage and storing it in a variable named storedNames
 var storedNames = JSON.parse(localStorage.getItem("parkInfo"));
-console.log(storedNames)
+// console.log(storedNames)
 var citiesArray =[]
 
 
@@ -84,8 +89,9 @@ for(let i=0;i<storedNames.length;i++){
   citiesArray.push(storedNames[i].city)
   //storing cities array into local storage 
   window.localStorage.setItem("citiesFromData",JSON.stringify(citiesArray))
-  currentCityWeather()
-}}
+ 
+} currentCityWeather();
+}
  
 
  function currentCityWeather (){
@@ -102,7 +108,7 @@ for (var i = 0 ; i < cityFromLocalStorage.length; i++){
             return response.json();
          })
       .then(function (weatherResponse) {
-         console.log(weatherResponse); 
+        //  console.log(weatherResponse); 
         // pushing weather response data into an array named weatherArray
 
 
@@ -142,7 +148,7 @@ for (var i = 0 ; i < cityFromLocalStorage.length; i++){
 function getAlertsApi() {
   var stateStorage = window.localStorage.getItem("state")
 
-  var requestAlertsUrl = 'https://developer.nps.gov/api/v1/alerts?parkCode=&stateCode='+stateStorage+'&api_key=ec09eb5352a3fea1cbdc287501e99a39';
+  var requestAlertsUrl = 'https://developer.nps.gov/api/v1/alerts?parkCode=&stateCode='+stateStorage+'&api_key=RoK1dEqNYGy3sRg4nQLmqFuSBnd6vuo9p4WA8l9Q';
 
   fetch(requestAlertsUrl)
     .then(function (response) {
@@ -155,12 +161,16 @@ function getAlertsApi() {
 
       console.log(newAlertsArray);
 
-      for(let i=0; i<=10; i++){       
+      for(let i=0; i<=data.data.length; i++){       
+        
+        
+        
         var parkAlertsInfo = {
           title: data.data[i].title,
           description: data.data[i].description,
           date: data.data[i].lastIndexedDate
-      };
+        }
+      ;
 
       newAlertsArray.push(parkAlertsInfo);
 
@@ -173,8 +183,9 @@ function getAlertsApi() {
       // console.log(webTest);  
     
     }
+    dataStructureCreated(); 
     });
-    
+   
 }
 //test to see if it works
 function dataStructureCreated(){
@@ -204,5 +215,6 @@ console.log(newData)
 //saving final data in local storage
 window.localStorage.setItem("finalData",JSON.stringify(newData))
 }
+
 }
-dataStructureCreated();
+
