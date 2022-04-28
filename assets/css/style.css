@@ -29,7 +29,8 @@ h3 {
 }
 
 .container {
-  padding: 50px;
+  padding-left: 100px;
+  padding-right: 100px;
   width: 100vw; 
 }
 
@@ -37,7 +38,7 @@ body {
   line-height: 1.8em;
   font-size: 14px;
   color: black;
-  background: linear-gradient(rgba(255, 255, 255, 0), #cad2c5),
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), #cad2c5),
   url("/assets/images/river.png");
   background-size: cover;
 
@@ -58,7 +59,19 @@ a {
 }
 
 .navLogo {
-  width: 50px;
+  width: 100%;
+  text-transform: uppercase;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 48px;
+  line-height: 59px;
+  letter-spacing: 0.1em;
+}
+
+.navLogo span {
+  font-weight: bolder;
+  text-transform: uppercase;
 }
 
 .navListContainer {
@@ -156,6 +169,7 @@ nav a:hover {
 .formHeader {
   text-align: center;
   padding-bottom: 25px;
+  padding-top: 50px;
 }
 
 
