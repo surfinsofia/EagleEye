@@ -99,10 +99,11 @@ for(let i=0;i<storedNames.length;i++){
   var cityFromLocalStorage = JSON.parse(localStorage.getItem("citiesFromData"))
   var weatherArray =[]
   
-
+  console.log(weatherArray)
 for (var i = 0 ; i < cityFromLocalStorage.length; i++){
        // weather api
-       var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityFromLocalStorage[i] + "&units=imperial&appid=ec09eb5352a3fea1cbdc287501e99a39"
+       console.log(cityFromLocalStorage[i])
+       var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityFromLocalStorage[i] + "&units=imperial&appid=e724ba8d68a039f0c9e73328553900ef"
          fetch(requestUrl)
         .then(function (response) {
             return response.json();
@@ -110,10 +111,10 @@ for (var i = 0 ; i < cityFromLocalStorage.length; i++){
       .then(function (weatherResponse) {
         //  console.log(weatherResponse); 
         // pushing weather response data into an array named weatherArray
-
+        console.log(weatherResponse)
 
          weatherArray.push(weatherResponse)
-        
+        console.log(weatherArray)
         
         
         
@@ -137,8 +138,9 @@ for (var i = 0 ; i < cityFromLocalStorage.length; i++){
       window.localStorage.setItem("weatherForCites",JSON.stringify(weatherArray))
 
        });
+       getAlertsApi();
      }
-     getAlertsApi();
+    
  }
  
  
@@ -154,21 +156,21 @@ function getAlertsApi() {
     .then(function (response) {
       return response.json();
     })
-    .then(function (data) {
-      console.log(data);
+    .then(function (alertsFetch) {
+      console.log(alertsFetch);
 
       newAlertsArray=[]
+      console.log(newAlertsArray)
+      
 
-      console.log(newAlertsArray);
-
-      for(let i=0; i<=data.data.length; i++){       
+      for(let i=0; i<=alertsFetch.data.length; i++){       
         
         
         
         var parkAlertsInfo = {
-          title: data.data[i].title,
-          description: data.data[i].description,
-          date: data.data[i].lastIndexedDate
+          title: alertsFetch.data[i].title,
+          description: alertsFetch.data[i].description,
+          date: alertsFetch.data[i].lastIndexedDate
         }
       ;
 
@@ -181,9 +183,9 @@ function getAlertsApi() {
       // console.log(data.data[0].lastIndexedDate);
       // webTest.textContent="";
       // console.log(webTest);  
-    
+      dataStructureCreated(); 
     }
-    dataStructureCreated(); 
+   
     });
    
 }
