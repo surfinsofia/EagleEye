@@ -42,12 +42,15 @@ function getApi() {
      console.log(newArray)
       for(let i=0; i<=10; i++){       
         var parkInfo = {
-          name:  data.data[i].fullName,
+          name:  data.data.fullName,
+          
           city: data.data[i].addresses[1].city,
           address: data.data[i].addresses[0].line1,
           zipcode: data.data[i].addresses[1].postalCode,
           image:data.data[i].images[0].url
+          
       };
+      console.log(data.data[i].addresses[1].city)
          newArray.push(parkInfo)
         
         window.localStorage.setItem("parkInfo",JSON.stringify(newArray))
@@ -57,7 +60,7 @@ function getApi() {
      
       //  console.log(localStorage.parkInfo)
     
-
+        currentCityWeather();
     });
 }
 
@@ -66,6 +69,7 @@ function getApi() {
 
 var storedNames = JSON.parse(localStorage.getItem("parkInfo"));
 console.log(storedNames)
+
 for(let i=0;i<storedNames.length;i++){
   console.log(storedNames[i])
 
@@ -97,12 +101,19 @@ function darkLightMode() {
 
 
 // cities array 
- var city =["Austin","Dallas", "Houston", "San Antonio", "amarillo"];
+//  var city =["Austin","Dallas", "Houston", "San Antonio", "amarillo"];
  var today = moment().format("L");
+ 
+
+ 
+
  function currentCityWeather (){
-   for (var i = 0 ; i < city.length; i++){
+
+  var cityFromLocalStorage = JSON.parse(localStorage.getItem("cityFetch"))
+console.log(cityFromLocalStorage)
+   for (var i = 0 ; i < cityFromLocalStorage.length; i++){
        // weather api
-       var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city[i] + "&units=imperial&appid=1ca11eb2eb0a3f14218b80de67213ac5"
+       var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityFromLocalStorage[i] + "&units=imperial&appid=1ca11eb2eb0a3f14218b80de67213ac5"
          fetch(requestUrl)
         .then(function (response) {
             return response.json();
@@ -122,7 +133,7 @@ function darkLightMode() {
        });
      }
  }
- currentCityWeather()
+ 
  
  
  
