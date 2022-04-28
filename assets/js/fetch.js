@@ -157,10 +157,10 @@ function getAlertsApi() {
       return response.json();
     })
     .then(function (alertsFetch) {
-      console.log(alertsFetch);
+      
 
       newAlertsArray=[]
-      console.log(newAlertsArray)
+      
       
 
       for(let i=0; i<=alertsFetch.data.length; i++){       
@@ -216,6 +216,7 @@ newData[i].alertDate = parkAlerts[i].date
 console.log(newData)
 //saving final data in local storage
 window.localStorage.setItem("finalData",JSON.stringify(newData))
+mainDataGet();
 }
 
 }
