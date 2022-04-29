@@ -242,8 +242,10 @@ window.localStorage.setItem("finalData",JSON.stringify(newData))
 // return;
 
 }
-mainDataGet();
-}
 
 }
-mainDataGet();
+
+var newButton=document.querySelector("#newsearchBtn")
+newButton.addEventListener('click',mainDataGet)
+
+

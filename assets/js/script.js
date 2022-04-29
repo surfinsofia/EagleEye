@@ -1,13 +1,9 @@
 
-function mainDataGet(){
+function mainDataGet(event){
+  event.preventDefault()
 var dataToUse = JSON.parse(localStorage.getItem("finalData"))
 console.log(dataToUse)
 
-<<<<<<< HEAD
-console.log(dataToUse[0].Parkalerts)
-
-}
-=======
 for(let i=0;i<dataToUse.length;i++){
     console.log(dataToUse[i])
 
@@ -66,4 +62,3 @@ for(let i=0;i<dataToUse.length;i++){
 
 // END OF ELEMENTS CODE 
 
->>>>>>> 5eff2a6ba6e6fcf4877a28fb089fa7358adde97a
