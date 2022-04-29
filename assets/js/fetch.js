@@ -15,9 +15,10 @@ var cityAddress = document.querySelector("#apiAddress")
 var searchBtn = document.querySelector("#searchBtn")
 
 searchBtn.addEventListener("click", saveInput)
+// searchBtn.addEventListener('click', mainDataGet )
 
-
-
+var newButton=document.querySelector("#newsearchBtn")
+newButton.addEventListener('click',mainDataGet)
 
 
 
@@ -244,7 +245,6 @@ window.localStorage.setItem("finalData",JSON.stringify(newData))
 }
 
 }
-//mainDataGet();
 
 
 
@@ -347,16 +347,6 @@ $("#stat").append(active)});
 
 
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
