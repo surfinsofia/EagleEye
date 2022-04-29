@@ -1,5 +1,6 @@
 
-function mainDataGet(){
+function mainDataGet(event){
+  event.preventDefault()
 var dataToUse = JSON.parse(localStorage.getItem("finalData"))
 console.log(dataToUse)
 
@@ -57,7 +58,7 @@ for(let i=0;i<dataToUse.length;i++){
     temperatureLi.appendChild(displayTemperature);
     humidityLi.appendChild(displayHumidity);
     windSpeedLi.appendChild(displayWindSpeed);
-    parkAlertsTitle.appendChild(displayParksAlertsTitle);
+    parkAlertsTitle.appendChild(displayParksAlertsCat);
     parkAlertsCat.appendChild(displayParksAlertsCat);
 
     parkImage.appendChild(displayImage);
