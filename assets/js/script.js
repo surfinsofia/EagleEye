@@ -5,7 +5,7 @@ var dataToUse = JSON.parse(localStorage.getItem("finalData"))
 console.log(dataToUse)
 
 for(let i=0;i<dataToUse.length;i++){
-    console.log(dataToUse[i])
+    console.log(dataToUse[i].weather.weather[0].icon)
 
     // parent element, where everything will live
     var dataContainer = document.createElement("div");
