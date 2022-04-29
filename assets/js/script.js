@@ -21,9 +21,9 @@ for(let i=0;i<dataToUse.length;i++){
     var windSpeedLi = document.createElement("li");
     var parkAlertsTitle = document.createElement("li");
    
-    
-
+   
     var parkImage = document.createElement('img')
+    var parkAlertsCat = document.createElement("li");
 
     // set class to child elements for CSS styling
     cityli.setAttribute("class", "cityLiBox"); //makes city a flex box
@@ -47,16 +47,19 @@ for(let i=0;i<dataToUse.length;i++){
     var displayImage = document.createTextNode(dataToUse[i].image);
 
     //****ALERTS DOEST WORK???? */
-    var displayParksAlertsTitle = document.createTextNode("Current Alerts: "+ dataToUse[i].Parkalerts.title.description);
+    var displayParksAlertsCat = document.createTextNode("Current Alerts: "+ dataToUse[i].Parkalerts.title.category);
 
     //appending the data info to the new child elements
     parkTitle.appendChild(displayParktitle);
     cityli.appendChild(displayParkCity);
     stateli.appendChild(displayParkState);
+
     temperatureLi.appendChild(displayTemperature);
     humidityLi.appendChild(displayHumidity);
     windSpeedLi.appendChild(displayWindSpeed);
     parkAlertsTitle.appendChild(displayParksAlertsTitle);
+    parkAlertsCat.appendChild(displayParksAlertsCat);
+
     parkImage.appendChild(displayImage);
 
     // appending the child element to the parent element
@@ -67,6 +70,8 @@ for(let i=0;i<dataToUse.length;i++){
     dataContainer.appendChild(humidityLi);
     dataContainer.appendChild(windSpeedLi);
     dataContainer.appendChild(parkAlertsTitle);
+
+    dataContainer.appendChild(parkAlertsCat);
     dataContainer.appendChild(parkImage);
     
     // appending the parent element to the API container in the HTML section
