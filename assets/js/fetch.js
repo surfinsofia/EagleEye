@@ -248,4 +248,106 @@ window.localStorage.setItem("finalData",JSON.stringify(newData))
 
 
 
+var fetchBtn = document.getElementById('fetch-btn');
+fetchBtn.addEventListener("click",getCamApi )
+
+function getCamApi() {
+  var requestUrl = "https://developer.nps.gov/api/v1/webcams?api_key=RoK1dEqNYGy3sRg4nQLmqFuSBnd6vuo9p4WA8l9Q"    ;
+  fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+
+    .then(function (data) {
+console.log(data)
+
+
+
+  var camname=$(`
+  <option>
+   ${data.data[32].title}
+- TX
+  </option>
+  <option>
+   ${data.data[10].title}
+- UT
+  </option>
+ <option>
+  ${data.data[28].title}
+- AZ
+ </option>
+ <option>
+ ${data.data[27].title}
+ - AZ
+</option>
+<option>
+ ${data.data[26].title}
+ - AZ
+</option>
+<option>
+${data.data[9].title}
+- CA
+</option>
+<option>
+${data.data[22].title}
+- CA
+</option>
+<option>
+${data.data[18].title}
+- WA
+</option>
+<option>
+${data.data[17].title}
+- CO
+</option>
+<option>
+${data.data[16].title}
+- CO
+</option>
+<option>
+${data.data[7].title}
+- TX
+</option>
+<option>
+${data.data[30].title}
+- AK
+</option>
+  `)
+$("#parkname").append(camname)
+
+
+
+
+var link=$(`
+<option>
+ ${data.data[10].url}
+</option>
+`)
+$("#linko").append(link)
+
+
+
+var coord=$(`
+<option>
+ ${data.data[10].latitude}
+ ${data.data[10].longitude}
+</option>
+`)
+$("#coordinates").append(coord)
+
+
+
+var active=$(`
+<option>
+ ${data.data[10].status}
+</option>
+`)
+$("#stat").append(active)});
+
+
+
+}
+
+
+
 

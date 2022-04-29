@@ -122,8 +122,64 @@
             <h3> peek into nature </h3>
             <h2> streaming webcams </h2>
         </div>
-        <!-- add your code here -->
+        <section>
+            <h2>
+              
+            </h2>
+            
+           
+              <button class="" id="fetch-btn">
+                Fetch Data
+              </button>
+            </div>
+            <ul></ul>
+         
+  
+          <label for="parknames">Select a Camera:</label>
+          <select name="selectname" id="parkname">
+            <option value="select">Select</option>
+        <div id="nameS"></div>
+          </select>
+  
+  
+      <button onclick="loadcam()">Open</button>
+  
+          <div>
+  
+          <p id="linko">Webcam URL:</select>
+              </ul></div>
+            
+          <p id="coordinates">Coordinates:</select>
+              </ul></div>
+  
+          <p id="stat">Status:</select>
+              </ul></div>
+  
+       
+  
+  
+        <script>
+            
+          function loadcam() {
+            var x = document.createElement("iframe");
+            x.setAttribute("src", "https://www.nps.gov/media/webcam/view.htm?id=EE11A8B1-EE17-7C0C-8C0AF4FE6CF5CD48");
+            document.body.appendChild(x);
+           
+          }
+          </script>
     </section>
+
+    <h2>
+        Live Views from National Parks around the USA
+      </h2>
+      
+      <section>
+    
+        <iframe width="410" height="575" src="https://www.nps.gov/media/webcam/view.htm?id=A4068FB2-DB05-82B5-F242852BBAA0A971"></iframe>
+        <iframe width="410" height="575" src="https://www.nps.gov/media/webcam/view.htm?id=81B46251-1DD8-B71B-0B29B9750DE273B5"></iframe>
+        <iframe width="410" height="575" src="https://www.nps.gov/media/webcam/view.htm?id=F91F11B2-C421-28C4-16C717FF1FF2CB72"></iframe>
+        </section>
+    
 
     <!-- footer -->
     <footer class="footerContainer">
