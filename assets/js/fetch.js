@@ -29,6 +29,7 @@ function saveInput(event){
       window.localStorage.setItem("state", stateCode);
       
   getApi()
+  
 }
 
 
@@ -237,10 +238,10 @@ newData[i].Parkalerts = parkAlerts[i]
 //saving final data in local storage
 window.localStorage.setItem("finalData",JSON.stringify(newData))
 
-console.log(newData)
-return;
-// mainDataGet();
-}
+// console.log(newData)
+// return;
 
 }
 
+}
+mainDataGet();
