@@ -9,7 +9,7 @@
 }
 
 h1 {
-font-weight: 200;
+font-weight: 400;
 font-size: 35px;
 line-height: 1.2em;
 letter-spacing: 0.1em;
@@ -18,15 +18,25 @@ text-transform: uppercase;
 
 h2 {
   font-size: 25px;
+  font-weight: 400;
   line-height: 1.2em;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   }
 
 h3 {
-  font-size: 15px;
+  font-size: 18px;
   font-style: italic;
   font-weight: 200;
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+}
+
+h4 {
+  font-size: 18px;
+  text-transform: capitalize;
+  font-weight: 400;
+  letter-spacing: 0.1em;
 }
 
 .container {
@@ -38,8 +48,8 @@ h3 {
 body {
   line-height: 1.8em;
   font-size: 14px;
-  color: black;
-  /* background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.479), #cad2c5), */
+  color: #2F3E46;
+  background: linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0.63), #ffffffb9), 
   url("/assets/images/river.png");
   background-size: cover;
 
@@ -47,6 +57,11 @@ body {
 
 a {
   text-decoration: none;
+  color: #CAD2C5;
+}
+
+a:visited {
+  color: #CAD2C5;
 }
 
  /* Navigation */
@@ -80,10 +95,10 @@ a {
 }
 
 .navItem {
-  padding: 15px;
+  padding: 16px;
   font-size: 14px;
-  text-transform: uppercase;
   letter-spacing: 0.1em;
+  font-weight: 500;
 }
 
 /* nav anchor tag styling */
@@ -117,17 +132,10 @@ nav a:hover {
 
 /* Image Header & Intro Paragraph */
 
-.mainHeader {
-  display: flex;
-  align-items: center;
-  flex-direction: row-reverse;
-  width: 100%;
-  height: 100vh;
-  /* background-color: #b4d6bc; */
-}
+/* //see MEDIA QUERIES For .mainHeader styling */
 
 .headerContent {
-  padding: 150px;
+  padding: 130px;
   width: 50%;
 } 
 
@@ -154,10 +162,15 @@ hr {
 .headerImage {
   position: relative;
   width: 50%;
-  height: 100%;
+  height: 100vh;
   background-image: url("/assets/images/mt-rainier-header.jpg");
   background-size: cover;
 }
+
+.mobile-image {
+  display:none;
+}
+
 .headerCaption{
   padding-bottom: 10px;
   width: 95%;
@@ -216,13 +229,13 @@ label {
   padding-right: 5px;
 }
 
-#apiContainer {
+/* #apiContainer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #cad2c567;
     padding: 15px;
-}
+} */
 
 #weatherBtn {
   padding: 15px;
@@ -244,8 +257,159 @@ label {
 }
 
 
+/* API DINAMIC  */
 
 
+#sPark {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+}
+
+#finalDataContainer {
+  width: 48%;
+  padding: 40px;
+  border: 1px dashed #CAD2C5;
+  margin: 8px;
+  list-style-type: none;
+}
+
+.cityLiBox {
+  display: flex;
+  padding-right: 5px;
+}
+
+.stateLiBox {
+  margin-left:3px
+}
 
 
+/* mobile  */
+
+@media only screen and (max-width: 915px) { 
   
+
+  /* nav  */
+  .navContainer {
+    display: flex;
+    padding: 20px 50px 20px 50px;
+    flex-direction: column;
+    align-items: center;
+}
+
+  .navListContainer {
+    display: flex;
+    list-style-type: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navItem {
+  padding: 8px;
+}
+
+  /* image header  */
+  .mainHeader {
+    width: 100%;
+    background-color: #cad2c52a;
+}
+.headerContent {
+  padding: 50px;
+  width: 100%;
+}
+
+.headerImage {
+  display: none;
+}
+
+.mobile-image {
+  display:block;
+  width: 100%;
+}
+
+.mobile-image img {
+  
+    height: 400px;
+    object-fit: cover;
+}
+
+
+.headerCaption {
+  padding-bottom: 10px;
+  /* width: 95%; */
+  color: white;
+  position: absolute;
+  border-bottom: 1.8px solid white;
+  bottom: 20%;
+  left: 20%;
+}
+
+/* Global Main Container */
+
+.container {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+/* form */
+
+#searchForm {
+  flex-wrap: wrap;
+}
+
+label {
+  padding: 10px;
+  text-align: center
+}
+
+#stateInputText {
+  text-align: center
+}
+
+.formBoxes {
+  width: 100%;
+}
+#finalDataContainer {
+  width: 100%;
+}
+
+
+}
+
+/* Tablet */
+@media only screen and (min-width: 916px) and (max-width:1023) { 
+
+  .mainHeader {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+
+  .headerContent {
+    padding: 70px!important;
+  }
+
+
+}
+
+/* desktop */
+
+@media screen and (min-width: 1024px) { 
+
+  .mainHeader {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+/* 
+  .headerContent {
+    padding: 70px;
+  } */
+
+
+}
+
+
