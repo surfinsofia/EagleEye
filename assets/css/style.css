@@ -164,11 +164,9 @@ hr {
 .headerImage {
   display: block;
   position: relative;
-  width: 50%;
+  /* width: 50%; */
   height: 100vh;
-  background: linear-gradient( rgba(0, 0, 0, 0), #2f3e4600, rgba(0, 0, 0, 0.473)),
-  url("/Users/bexijoibel/UT-Bootcamp/Group Projects/groupproject1/img/mt-rainier.jpg");
-  background-size: cover;
+  object-fit: cover;
 }
 
 .mobile-image {
@@ -381,9 +379,9 @@ list-style: none;
   width: 100%;
 }
 
-.headerImage {
+/* .headerImage {
   display: none;
-}
+} */
 
 .mobile-image {
   display:block;
