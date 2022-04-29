@@ -18,7 +18,7 @@ searchBtn.addEventListener("click", saveInput)
 
 
 
-console.log(searchBtn)
+
 
 
 function saveInput(event){
@@ -27,7 +27,7 @@ function saveInput(event){
 
   var stateCode = document.querySelector("#stateInputText").value
       window.localStorage.setItem("state", stateCode);
-      console.log(stateCode)
+      
   getApi()
 }
 
@@ -49,28 +49,54 @@ function getApi() {
       
       newArray=[]
       
-     
+     console.log(newArray)
       for(let i=0; i<=data.data.length; i++){       
         
+
+        if(stateStorage===data.data[i].addresses[1].stateCode){
+          console.log('it worked')
+          var parkInfo = {
+            name:  data.data[i].name,
+            
+            city: data.data[i].addresses[1].city,
+            address: data.data[i].addresses[0].line1,
+            zipcode: data.data[i].addresses[1].postalCode,
+            image:data.data[i].images[0].url,
+            state:data.data[i].addresses[1].stateCode,
+            feesDescription:data.data[i].entranceFees[0].title,
+            directionsInformation: data.data[i].directionsInfo,
+            phoneNumber: data.data[i].contacts.phoneNumbers[0],
+            weatherInfo: data.data[i].weatherInfo,
+            fees:'$'+data.data[i].entranceFees[0].cost,
+            mondayHours: "Monday Hours: "+data.data[i].operatingHours[0].standardHours.monday,
+            tuesdayHours:"Tuesday Hours: " +data.data[i].operatingHours[0].standardHours.tuesday,
+            wednesdayHours:'Wednesday Hours: '+data.data[i].operatingHours[0].standardHours.wednesday,
+            thursdayHours:"Thursday Hours: "+ data.data[i].operatingHours[0].standardHours.thursday,
+            fridayHours:'Friday Hours: ' +data.data[i].operatingHours[0].standardHours.friday, 
+            saturdayHours:'Saturday Hours: ' +data.data[i].operatingHours[0].standardHours.saturday,
+            sundayHours:'Sunday Hours: ' +data.data[i].operatingHours[0].standardHours.sunday,
+
+
+            
+        };
+              newArray.push(parkInfo) 
+              window.localStorage.setItem("parkInfo",JSON.stringify(newArray))  
+            console.log(newArray)
+        } 
+          
         
-        var parkInfo = {
-          name:  data.data[i].name,
+        // console.log(data.data[i].addresses[1].stateCode)
           
-          city: data.data[i].addresses[1].city,
-          address: data.data[i].addresses[0].line1,
-          zipcode: data.data[i].addresses[1].postalCode,
-          image:data.data[i].images[0].url
-          
-      };
+       
       
       
       // pushing the parkinfo object into an array named newArray  
-      newArray.push(parkInfo)
+      
       // console.log(newArray)
         //storing newArray into local storage
-         window.localStorage.setItem("parkInfo",JSON.stringify(newArray))              
+                 
     }
-         
+        
     });
     storeCitiesInLocalStorage();
 }
@@ -83,7 +109,6 @@ var storedNames = JSON.parse(localStorage.getItem("parkInfo"));
 var citiesArray =[]
 
 
-console.log(citiesArray)
 for(let i=0;i<storedNames.length;i++){
   //looping through storedNames position and pushing the cities into a new citiesArray
   citiesArray.push(storedNames[i].city)
@@ -99,10 +124,10 @@ for(let i=0;i<storedNames.length;i++){
   var cityFromLocalStorage = JSON.parse(localStorage.getItem("citiesFromData"))
   var weatherArray =[]
   
-  console.log(weatherArray)
+  
 for (var i = 0 ; i < cityFromLocalStorage.length; i++){
        // weather api
-       console.log(cityFromLocalStorage[i])
+       
        var requestUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + cityFromLocalStorage[i] + "&units=imperial&appid=e724ba8d68a039f0c9e73328553900ef"
          fetch(requestUrl)
         .then(function (response) {
@@ -111,10 +136,10 @@ for (var i = 0 ; i < cityFromLocalStorage.length; i++){
       .then(function (weatherResponse) {
         //  console.log(weatherResponse); 
         // pushing weather response data into an array named weatherArray
-        console.log(weatherResponse)
+        
 
          weatherArray.push(weatherResponse)
-        console.log(weatherArray)
+        
         
         
         
@@ -168,9 +193,9 @@ function getAlertsApi() {
         
         
         var parkAlertsInfo = {
-          title: alertsFetch.data[i].title,
-          description: alertsFetch.data[i].description,
-          date: alertsFetch.data[i].lastIndexedDate
+          title: alertsFetch.data[i],
+          
+          
         }
       ;
 
@@ -193,30 +218,28 @@ function getAlertsApi() {
 function dataStructureCreated(){
   //accessing parkInfo in local storage
 var newData = JSON.parse(localStorage.getItem("parkInfo"))
-console.log(newData)
+
 //accessing weatherForCities in local storage
 var newWeatherData = JSON.parse(localStorage.getItem("weatherForCites"))
-console.log(newWeatherData)
+
 // accessing parkAlertsInfo in local storage
 var parkAlerts = JSON.parse(localStorage.getItem("parkAlertsInfo"))
-console.log(parkAlerts)
+
 
 
 for(let i=0; i<newData.length; i++){
 // storing adding weather and alert data to newData object
-newData[i].temp = newWeatherData[i].main.temp
-newData[i].windspeed= newWeatherData[i].wind.speed
-newData[i].humidity= newWeatherData[i].main.humidity
-newData[i].description = newWeatherData[i].weather[0].description
-newData[i].icon = newWeatherData[i].weather[0].icon
-newData[i].alert = parkAlerts[i].title
-newData[i].alertType = parkAlerts[i].description
-newData[i].alertDate = parkAlerts[i].date
+newData[i].weather = newWeatherData[i]
+newData[i].Parkalerts = parkAlerts[i]
 
-console.log(newData)
+
+
 //saving final data in local storage
 window.localStorage.setItem("finalData",JSON.stringify(newData))
-mainDataGet();
+
+console.log(newData)
+return;
+// mainDataGet();
 }
 
 }
