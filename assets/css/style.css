@@ -162,12 +162,12 @@ hr {
 }
 
 .headerImage {
+  display: block;
   position: relative;
   width: 50%;
   height: 100vh;
-  background-image: linear-gradient( rgba(0, 0, 0, 0), #2f3e4600, rgba(0, 0, 0, 0.473)),
-  url("/assets/images/mt-rainier-header.jpg");
-  /* background-image: url("/assets/images/mt-rainier-header.jpg"); */
+  background: linear-gradient( rgba(0, 0, 0, 0), #2f3e4600, rgba(0, 0, 0, 0.473)),
+  url("/Users/bexijoibel/UT-Bootcamp/Group Projects/groupproject1/img/mt-rainier.jpg");
   background-size: cover;
 }
 
