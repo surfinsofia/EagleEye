@@ -58,7 +58,7 @@ for(let i=0;i<dataToUse.length;i++){
     temperatureLi.appendChild(displayTemperature);
     humidityLi.appendChild(displayHumidity);
     windSpeedLi.appendChild(displayWindSpeed);
-    parkAlertsTitle.appendChild(displayParksAlertsTitle);
+    parkAlertsTitle.appendChild(displayParksAlertsCat);
     parkAlertsCat.appendChild(displayParksAlertsCat);
 
     parkImage.appendChild(displayImage);
