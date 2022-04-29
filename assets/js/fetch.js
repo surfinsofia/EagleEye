@@ -237,10 +237,10 @@ newData[i].Parkalerts = parkAlerts[i]
 //saving final data in local storage
 window.localStorage.setItem("finalData",JSON.stringify(newData))
 
-console.log(newData)
-return;
-// mainDataGet();
-}
 
+
+
+}
+mainDataGet();
 }
 
