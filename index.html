@@ -14,11 +14,11 @@
  <!-- add jquery and other links here -->
 </head>
 <body>
-        <nav class="navContainer">
+    <nav class="navContainer">
         <div class="navLogo navBox"> <img src="/assets/images/logo.svg"> </div>
         <ul class="navBox navListContainer">
-            <li class="navItem"> <a href="#mainTopContainerAnchorLink"> parks </a> </li>
-            <li class="navItem"> webcams </li>    
+            <li class="navItem"> <a href="#mainTopContainerAnchorLink"> browse parks </a> </li>
+            <li class="navItem"> <a href="#webcams"> webcams </a></li>    
             <li class="dark-mode navItem" id="dark-mode"> dark mode </li>
         </ul>
     </nav> 
@@ -40,11 +40,12 @@
     <main class="container" id="mainTopContainerAnchorLink"> 
     <!-- html input form  -->
     <div id="formHeader" class="formHeader"> 
+        <img src="/assets/images/compass.svg" alt="quest-icon" width="50px">
     <h3> plan your trip </h3>
     <h2> search by state </h2>
     </div>
     <form id="searchForm">
-        <label class="formBoxes"> National Parks </label>
+        <label class="formBoxes"> Begin Your Quest  </label>
         <select name="formBoxes" id="stateInputText">
             <option value="" disabled="" selected=""> Choose A State </option>
             <option value="AL">Alabama</option>
@@ -102,14 +103,9 @@
         <button class="formBoxes btnClass" id="searchBtn"> search </button>
     </form>
 
-    <!-- State Park API Container  -->
+    <!-- State Park API Container - Dynamic JS  -->
     <div id="apiContainer"> 
         <div class="apiBoxes" id="sPark"> </div>
-        <!-- <ul class="apiBoxes" id="cityStateList"> 
-        <li id="apiCityBox"><br></li>
-        <li id="apiAddress"><br></li>
-        <li id="apiStateBox"> </li>
-        </ul> -->
     </div>
     <!-- Weather API Container  --> 
     <!-- <section id="apiWeatherInfoContainer">
@@ -118,14 +114,37 @@
         <div class="apiWeatherBoxes" id="apiWeatherBox3"></div>
     </section>  -->
     </main>   
+    <!-- Webcams API  -->
     <section class="container">
-        <div> </div>
-        <di> </div>
-
+        <div id="webcams" class="sofiaHeader">
+            <img src="/assets/images/webcam.svg" alt="quest-icon" width="50px"> 
+            <h3> peek into nature </h3>
+            <h2> streaming webcams </h2>
+        </div>
+        <!-- add your code here -->
     </section>
+
+    <!-- footer -->
+    <footer class="footerContainer">
+        <div class="footerLogo footerBox"> <img src="/assets/images/logo.svg"> </div>
+        <div class="footerBox"> 
+        <h2 > Developers: </h2>
+        <ul class="footerBox footerListContainer">
+            <li class="footerListItemBox"> Jesus Oyervides </li>
+            <li class="footerListItemBox"> Eric Ruboneka </li> <br>
+            <li class="footerListItemBox"> Sofia Elizondo </li>
+            <li class="footerListItemBox"> Bexi Castillo  </li>
+        </ul>
+        </div>
+        <div class="footerBox footerLinks">
+           <ul>
+               <li> <a class="footerLink" href="https://github.com/surfinsofia/groupproject1" target="_blank"> GitHub Repo </a></li>
+               <li> copyright © 2022 </li> 
+            </ul>   
+        </div>
+    </footer>
     <!-- Javascript Links       -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/fetch.js"></script>

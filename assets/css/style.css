@@ -57,11 +57,11 @@ body {
 
 a {
   text-decoration: none;
-  color: #CAD2C5;
+  color: #52796F;
 }
 
 a:visited {
-  color: #CAD2C5;
+  color: #52796F;
 }
 
  /* Navigation */
@@ -109,9 +109,11 @@ nav a:hover {
   
 }
 
+
 /* dark mode button  */
 
 .dark-mode {
+  /* background-color: #2F3E46; */
   background: linear-gradient( #000, #2F3E46, #000),
   url("/assets/images/Challenges.png");
   color: white;
@@ -124,7 +126,7 @@ nav a:hover {
   padding:10px;
   background-color: #2F3E46;
   text-transform: uppercase;
-  color: white;
+  color: white!important;
   font-size: 12px;
   border:none;
   letter-spacing: 2px;
@@ -163,7 +165,9 @@ hr {
   position: relative;
   width: 50%;
   height: 100vh;
-  background-image: url("/assets/images/mt-rainier-header.jpg");
+  background-image: linear-gradient( rgba(0, 0, 0, 0), #2f3e4600, rgba(0, 0, 0, 0.473)),
+  url("/assets/images/mt-rainier-header.jpg");
+  /* background-image: url("/assets/images/mt-rainier-header.jpg"); */
   background-size: cover;
 }
 
@@ -179,8 +183,12 @@ hr {
   border-bottom: 1.8px solid white;
   bottom: 20%;
   left: 5%;
+  font-size: 12px;
 }
 
+main {
+  margin-bottom: 50px;
+}
 
 /* Form  */
 
@@ -284,6 +292,60 @@ label {
   margin-left:3px
 }
 
+/* Sofias Code CSS */
+
+.sofiaHeader {
+  text-align: center;
+  padding-bottom: 25px;
+  /* padding-top: 50px; */
+}
+
+
+/* footer */
+
+.footerContainer {
+  padding: 50px;
+  background-color: #2f3e46;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.footerLogo {
+  opacity: 1.1;
+}
+
+.footerLogo img {
+  width: 250px;
+}
+
+.footerBox ul {
+list-style: none;
+}
+
+.footerListContainer {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    /* text-align: right; */
+}
+
+.footerListItemBox {
+    padding-right: 20px;
+    font-size: 200;
+    font-weight: 200;
+}
+
+.footerBox a {
+  color:white;
+  text-decoration: 2px overline wavy #CAD2C5;
+}
+
+.footerBox a:hover {
+  color:#52796F;
+  text-decoration: 2px overline wavy #52796F;
+}
 
 /* mobile  */
 
@@ -374,6 +436,29 @@ label {
   width: 100%;
 }
 
+/* footer  */
+.footerContainer {
+  padding: 50px;
+  background-color: #2f3e46;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.footerListContainer {
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  text-align: center;
+}
+
+.footerBox {
+  margin-bottom: 20px;
+}
+
+.footerLinks {
+  text-align: center;
+}
 
 }
 
