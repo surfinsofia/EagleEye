@@ -77,7 +77,8 @@ function getApi() {
             fridayHours:'Friday Hours: ' +data.data[i].operatingHours[0].standardHours.friday, 
             saturdayHours:'Saturday Hours: ' +data.data[i].operatingHours[0].standardHours.saturday,
             sundayHours:'Sunday Hours: ' +data.data[i].operatingHours[0].standardHours.sunday,
-
+            siteDescription: data.data[i].description,
+            siteUrl: data.data[i].url
 
             
         };
